@@ -14,7 +14,132 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      daily_logs: {
+        Row: {
+          cardio_minutes: number
+          created_at: string
+          energy: number | null
+          focus_minutes: number
+          highlight: string | null
+          id: string
+          journal: string | null
+          learning_minutes: number
+          log_date: string
+          mood: number | null
+          sleep_hours: number | null
+          steps: number
+          updated_at: string
+          user_id: string
+          workout_done: boolean
+        }
+        Insert: {
+          cardio_minutes?: number
+          created_at?: string
+          energy?: number | null
+          focus_minutes?: number
+          highlight?: string | null
+          id?: string
+          journal?: string | null
+          learning_minutes?: number
+          log_date: string
+          mood?: number | null
+          sleep_hours?: number | null
+          steps?: number
+          updated_at?: string
+          user_id: string
+          workout_done?: boolean
+        }
+        Update: {
+          cardio_minutes?: number
+          created_at?: string
+          energy?: number | null
+          focus_minutes?: number
+          highlight?: string | null
+          id?: string
+          journal?: string | null
+          learning_minutes?: number
+          log_date?: string
+          mood?: number | null
+          sleep_hours?: number | null
+          steps?: number
+          updated_at?: string
+          user_id?: string
+          workout_done?: boolean
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          id: string
+          status: string
+          timezone: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          id: string
+          status?: string
+          timezone?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          status?: string
+          timezone?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          bucket: string
+          category: string
+          completed_at: string | null
+          created_at: string
+          done: boolean
+          due_date: string
+          estimate_minutes: number | null
+          id: string
+          notes: string | null
+          priority: number
+          title: string
+          user_id: string
+        }
+        Insert: {
+          bucket?: string
+          category?: string
+          completed_at?: string | null
+          created_at?: string
+          done?: boolean
+          due_date?: string
+          estimate_minutes?: number | null
+          id?: string
+          notes?: string | null
+          priority?: number
+          title: string
+          user_id: string
+        }
+        Update: {
+          bucket?: string
+          category?: string
+          completed_at?: string | null
+          created_at?: string
+          done?: boolean
+          due_date?: string
+          estimate_minutes?: number | null
+          id?: string
+          notes?: string | null
+          priority?: number
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
