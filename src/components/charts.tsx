@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 /** Animated progress ring. value 0..1 */
 export function Ring({ value, color = "var(--acid)", size = 84, stroke = 8, label, sub }: {
-  value: number; color?: string; size?: number; stroke?: number; label?: string; sub?: string;
+  value: number; color?: string; size?: number; stroke?: number; label?: string | undefined; sub?: string;
 }) {
   const [v, setV] = useState(0);
   useEffect(() => { const t = setTimeout(() => setV(Math.max(0, Math.min(1, value))), 60); return () => clearTimeout(t); }, [value]);

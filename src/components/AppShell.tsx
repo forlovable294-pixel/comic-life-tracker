@@ -9,7 +9,7 @@ import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
 import { QuickAddDialog } from "./QuickAdd";
 
-type NavItem = { to: string; params?: Record<string, string>; label: string; icon: typeof Home };
+type NavItem = { to: string; params?: { slug: string }; label: string; icon: typeof Home };
 export const NAV: NavItem[] = [
   { to: "/", label: "Home", icon: Home },
   { to: "/log", label: "Daily Log", icon: NotebookPen },
@@ -92,7 +92,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       {/* Mobile bottom nav */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t-2 bg-sidebar md:hidden">
         <div className="grid grid-cols-5 items-end">
-          {[NAV[0], NAV[1]].map((n) => (
+          {NAV.slice(0, 2).map((n) => (
             <Link key={n.label} to={n.to} className={`flex flex-col items-center gap-1 py-3 text-[10px] uppercase ${isActive(n) ? "text-acid" : "text-muted-foreground"}`}>
               <n.icon className="size-5" />{n.label.split(" ")[0]}
             </Link>

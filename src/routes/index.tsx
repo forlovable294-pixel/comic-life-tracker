@@ -204,7 +204,7 @@ function TaskRow({ t }: { t: Task }) {
   );
 }
 
-function DailyStats({ log, done, planned, streak }: { log?: import("@/lib/data").DailyLog; done: number; planned: number; streak: number }) {
+function DailyStats({ log, done, planned, streak }: { log: import("@/lib/data").DailyLog | undefined; done: number; planned: number; streak: number }) {
   const tiles = [
     { icon: ListChecks, label: "Missions", value: `${done}/${planned}`, to: "/", color: "text-acid" },
     { icon: Timer, label: "Focus", value: `${log?.focus_minutes ?? 0}m`, to: "/log", color: "text-cyan" },
